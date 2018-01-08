@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import Person from './Person/Person';
 
@@ -29,6 +29,21 @@ switchNameHandler = () => {
   )
 }
 
+nameChangeHandler = (event) => {
+
+  this.setState (
+    {
+      persons: [
+  {name: 'Usman', age: 22},
+  {name: event.target.value, age: 33}
+      ]
+    }
+
+  )
+
+
+}
+
   render() {
     return (
       
@@ -36,7 +51,11 @@ switchNameHandler = () => {
        <h1> Hello World </h1>
        <button onClick = {this.switchNameHandler} > Switch Name</button>
       <Person name={this.state.persons[0].name} age= {this.state.persons[0].age}>Hobbies : Driving </Person>
-      <Person name={this.state.persons[1].name} age= {this.state.persons[1].age}> </Person>
+      <Person 
+      name={this.state.persons[1].name} 
+      age= {this.state.persons[1].age}
+      click= {this.switchNameHandler}
+      changed = {this.nameChangeHandler} > </Person>
 
 
       </div>
